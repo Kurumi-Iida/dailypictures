@@ -14,6 +14,10 @@
 		641061EC1C30FECD0022FE77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 641061EA1C30FECD0022FE77 /* LaunchScreen.storyboard */; };
 		641061F71C30FECE0022FE77 /* Carender_testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641061F61C30FECE0022FE77 /* Carender_testTests.swift */; };
 		641062021C30FECE0022FE77 /* Carender_testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641062011C30FECE0022FE77 /* Carender_testUITests.swift */; };
+		641062121C4B6AD60022FE77 /* IMG_5211.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 641062101C4B6AD60022FE77 /* IMG_5211.PNG */; };
+		641062131C4B6AD60022FE77 /* IMG_5212.png in Resources */ = {isa = PBXBuildFile; fileRef = 641062111C4B6AD60022FE77 /* IMG_5212.png */; };
+		641062151C4B79810022FE77 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641062141C4B79810022FE77 /* ReminderViewController.swift */; };
+		641062171C5DA7B70022FE77 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 641062161C5DA7B70022FE77 /* AssetsLibrary.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		641061FD1C30FECE0022FE77 /* Carender testUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Carender testUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		641062011C30FECE0022FE77 /* Carender_testUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carender_testUITests.swift; sourceTree = "<group>"; };
 		641062031C30FECE0022FE77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		641062101C4B6AD60022FE77 /* IMG_5211.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_5211.PNG; sourceTree = "<group>"; };
+		641062111C4B6AD60022FE77 /* IMG_5212.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_5212.png; sourceTree = "<group>"; };
+		641062141C4B79810022FE77 /* ReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
+		641062161C5DA7B70022FE77 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				641062171C5DA7B70022FE77 /* AssetsLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +86,7 @@
 		641061D51C30FECD0022FE77 = {
 			isa = PBXGroup;
 			children = (
+				641062161C5DA7B70022FE77 /* AssetsLibrary.framework */,
 				641061E01C30FECD0022FE77 /* Carender test */,
 				641061F51C30FECE0022FE77 /* Carender testTests */,
 				641062001C30FECE0022FE77 /* Carender testUITests */,
@@ -97,8 +107,11 @@
 		641061E01C30FECD0022FE77 /* Carender test */ = {
 			isa = PBXGroup;
 			children = (
+				641062101C4B6AD60022FE77 /* IMG_5211.PNG */,
+				641062111C4B6AD60022FE77 /* IMG_5212.png */,
 				641061E11C30FECD0022FE77 /* AppDelegate.swift */,
 				641061E31C30FECD0022FE77 /* ViewController.swift */,
+				641062141C4B79810022FE77 /* ReminderViewController.swift */,
 				641061E51C30FECD0022FE77 /* Main.storyboard */,
 				641061E81C30FECD0022FE77 /* Assets.xcassets */,
 				641061EA1C30FECD0022FE77 /* LaunchScreen.storyboard */,
@@ -193,6 +206,7 @@
 				TargetAttributes = {
 					641061DD1C30FECD0022FE77 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 7Q7T54V3EG;
 					};
 					641061F11C30FECE0022FE77 = {
 						CreatedOnToolsVersion = 7.2;
@@ -229,6 +243,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				641062131C4B6AD60022FE77 /* IMG_5212.png in Resources */,
+				641062121C4B6AD60022FE77 /* IMG_5211.PNG in Resources */,
 				641061EC1C30FECD0022FE77 /* LaunchScreen.storyboard in Resources */,
 				641061E91C30FECD0022FE77 /* Assets.xcassets in Resources */,
 				641061E71C30FECD0022FE77 /* Main.storyboard in Resources */,
@@ -258,6 +274,7 @@
 			files = (
 				641061E41C30FECD0022FE77 /* ViewController.swift in Sources */,
 				641061E21C30FECD0022FE77 /* AppDelegate.swift in Sources */,
+				641062151C4B79810022FE77 /* ReminderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,10 +414,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Carender test/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.litech.Carender-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -408,10 +428,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Carender test/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.litech.Carender-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -482,6 +505,7 @@
 				641062081C30FECE0022FE77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		641062091C30FECE0022FE77 /* Build configuration list for PBXNativeTarget "Carender testTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +514,7 @@
 				6410620B1C30FECE0022FE77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6410620C1C30FECE0022FE77 /* Build configuration list for PBXNativeTarget "Carender testUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +523,7 @@
 				6410620E1C30FECE0022FE77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
