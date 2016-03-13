@@ -18,6 +18,8 @@
 		641062131C4B6AD60022FE77 /* IMG_5212.png in Resources */ = {isa = PBXBuildFile; fileRef = 641062111C4B6AD60022FE77 /* IMG_5212.png */; };
 		641062151C4B79810022FE77 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641062141C4B79810022FE77 /* ReminderViewController.swift */; };
 		641062171C5DA7B70022FE77 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 641062161C5DA7B70022FE77 /* AssetsLibrary.framework */; };
+		643358931C950C5200791407 /* yajirushi_hidari.png in Resources */ = {isa = PBXBuildFile; fileRef = 643358911C950C5200791407 /* yajirushi_hidari.png */; };
+		643358941C950C5200791407 /* yajirushi_migi.png in Resources */ = {isa = PBXBuildFile; fileRef = 643358921C950C5200791407 /* yajirushi_migi.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		641062111C4B6AD60022FE77 /* IMG_5212.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_5212.png; sourceTree = "<group>"; };
 		641062141C4B79810022FE77 /* ReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
 		641062161C5DA7B70022FE77 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		643358911C950C5200791407 /* yajirushi_hidari.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = yajirushi_hidari.png; path = ../../yajirushi_hidari.png; sourceTree = "<group>"; };
+		643358921C950C5200791407 /* yajirushi_migi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = yajirushi_migi.png; path = ../../yajirushi_migi.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,8 @@
 		641061E01C30FECD0022FE77 /* Carender test */ = {
 			isa = PBXGroup;
 			children = (
+				643358911C950C5200791407 /* yajirushi_hidari.png */,
+				643358921C950C5200791407 /* yajirushi_migi.png */,
 				641062101C4B6AD60022FE77 /* IMG_5211.PNG */,
 				641062111C4B6AD60022FE77 /* IMG_5212.png */,
 				641061E11C30FECD0022FE77 /* AppDelegate.swift */,
@@ -246,7 +252,9 @@
 				641062131C4B6AD60022FE77 /* IMG_5212.png in Resources */,
 				641062121C4B6AD60022FE77 /* IMG_5211.PNG in Resources */,
 				641061EC1C30FECD0022FE77 /* LaunchScreen.storyboard in Resources */,
+				643358931C950C5200791407 /* yajirushi_hidari.png in Resources */,
 				641061E91C30FECD0022FE77 /* Assets.xcassets in Resources */,
+				643358941C950C5200791407 /* yajirushi_migi.png in Resources */,
 				641061E71C30FECD0022FE77 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

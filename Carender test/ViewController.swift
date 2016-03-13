@@ -59,10 +59,20 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     var calendarSize: Int!
     var calendarFontSize: Int!
     
+    var timer: NSTimer!
+    var flag: Bool = true
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         //getAllPhotosInfo()
+        timer = NSTimer.scheduledTimerWithTimeInterval(4,
+            target: self,
+            selector: Selector("textRed"),
+            userInfo: nil,
+            repeats: true
+        )
+
         
         //現在起動中のデバイスを取得（スクリーンの幅・高さ）
         let screenWidth  = Int(
@@ -111,21 +121,21 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
             //iPhone6
         }else if (screenWidth == 375 && screenHeight == 667){
             
-            calendarLabelIntervalX = 15;
-            calendarLabelX         = 50;
-            calendarLabelY         = 95;
-            calendarLabelWidth     = 45;
-            calendarLabelHeight    = 25;
-            calendarLableFontSize  = 16;
+            calendarLabelIntervalX = 30;//曜日すき間広く
+            calendarLabelX         = 50;//曜日のすき間せまく
+            calendarLabelY         = 95;//曜日高さ
+            calendarLabelWidth     = 50;//曜日
+            calendarLabelHeight    = 50;
+            calendarLableFontSize  = 50;
             
             buttonRadius           = 22.5;
             
-            calendarIntervalX      = 15;
-            calendarX              = 50;
-            calendarIntervalY      = 125;
-            calendarY              = 50;
-            calendarSize           = 45;
-            calendarFontSize       = 19;
+            calendarIntervalX      = 4;//カレンダー横ズレ
+            calendarX              = 53;//カレンダー間
+            calendarIntervalY      = 135;//カレンダー上下
+            calendarY              = 55;//カレンダー上下の間
+            calendarSize           = 50;//ボタンの大きさ
+            calendarFontSize       = 100;
             
             self.prevMonthButton.frame = CGRectMake(15, 438, CGFloat(calendarSize), CGFloat(calendarSize));
             self.nextMonthButton.frame = CGRectMake(314, 438, CGFloat(calendarSize), CGFloat(calendarSize));
@@ -215,8 +225,9 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
             let calendarBaseLabel: UILabel = UILabel()
             
             //X座標の値をCGFloat型へ変換して設定
+            let tmp = i * 3 - 26
             calendarBaseLabel.frame = CGRectMake(
-                CGFloat(calendarLabelIntervalX + calendarLabelX * (i % calendarLabelCount)),
+                CGFloat(calendarLabelIntervalX + calendarLabelX * (i % calendarLabelCount) + tmp),
                 CGFloat(200 + calendarLabelY),
                 CGFloat(calendarLabelWidth),
                 CGFloat(calendarLabelHeight)
@@ -534,7 +545,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         let fromDate = getNSDateFromString(year, month: month, day: day)
         let toDate = getNSDateFromString(year, month: month, day: day+1)
         if toDate == nil {
-            return 
+            return
         }
         options.predicate = NSPredicate(format: "(creationDate >= %@) and (creationDate < %@)",fromDate!, toDate!)
         // options.predicate = NSPredicate.predicateWithSubstitutionVariables(日にち)
@@ -547,20 +558,41 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         print("")
         print(photoAssets)
         
-        let manager: PHImageManager = PHImageManager()
         if self.photoAssets.count != 0 {
+            let manager: PHImageManager = PHImageManager()
             manager.requestImageDataForAsset(self.photoAssets[0],
                 options: nil,
                 resultHandler: {(data, str, orientation, info) in
                     let image = UIImage(data: data!)
                     self.haikeiImageView.image = image
                 })
-        } else {
-            
-        
         }
         
     }
+    
+    func textRed() {
+        print("image")
+        UIView.animateWithDuration(1.5,
+            animations: {
+                self.haikeiImageView.alpha = 0.5
+            },
+            completion: { flag in
+                UIView.animateWithDuration(1.5,
+                    animations: {
+                        self.haikeiImageView.alpha = 1.0
+                        if self.photoAssets.count != 0 {
+                            let manager: PHImageManager = PHImageManager()
+                            manager.requestImageDataForAsset(self.photoAssets[Int(arc4random_uniform(UInt32(self.photoAssets.count)))],
+                                options: nil,
+                                resultHandler: {(data, str, orientation, info) in
+                                    let image = UIImage(data: data!)
+                                    self.haikeiImageView.image = image
+                            })
+                        }
+                    }, completion: nil)
+        })
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
