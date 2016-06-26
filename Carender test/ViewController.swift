@@ -17,7 +17,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     let ipc:UIImagePickerController = UIImagePickerController();
     var photoAssets = [PHAsset]()
     //メンバ変数の設定（配列格納用）
-    var count: Int!
     var mArray: NSMutableArray!
     
     // チェックボックス
@@ -36,11 +35,13 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     
     //メンバ変数の設定
     var calendarBackGroundColor: UIColor!
+    var beforecangeBackgroundColor: UIColor!
     
     //プロパティを指定
     @IBOutlet var calendarBar: UILabel!
     @IBOutlet var prevMonthButton: UIButton!
     @IBOutlet var nextMonthButton: UIButton!
+    
     
     //カレンダーの位置決め用メンバ変数
     var calendarLabelIntervalX: Int!
@@ -315,42 +316,43 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
             //ボタンの配色の設定
             //@remark:このサンプルでは正円のボタンを作っていますが、背景画像の設定等も可能です。
             if(i % 7 == 0){
-                calendarBackGroundColor = UIColor.redColor()
+                button.backgroundColor = UIColor.redColor()
 
             }else if(i % 7 == 6){
-                calendarBackGroundColor = UIColor(
+                button.backgroundColor = UIColor(
                 red: CGFloat(0.2), green: CGFloat(0.3), blue: CGFloat(0.7), alpha: CGFloat(0.7))
                 
             }else if(i % 7 == 2){
                 
-                calendarBackGroundColor = UIColor(
+                button.backgroundColor = UIColor(
                     red: CGFloat(1), green: CGFloat(0.9), blue: CGFloat(0.8), alpha: CGFloat(1.0))
                 
             }else if(i % 7 == 3){
                 
-                calendarBackGroundColor = UIColor(
+                button.backgroundColor = UIColor(
                     red: CGFloat(0.8), green: CGFloat(1), blue: CGFloat(1), alpha: CGFloat(1.0))
                 
             }else if(i % 7 == 1){
                 
-                calendarBackGroundColor = UIColor(
+                button.backgroundColor = UIColor(
                     red: CGFloat(0.8), green: CGFloat(0.9), blue: CGFloat(1), alpha: CGFloat(1.0))
                 
             }else if(i % 7 == 4){
                 
-                calendarBackGroundColor = UIColor(
+                button.backgroundColor = UIColor(
                     red: CGFloat(0.9), green: CGFloat(1), blue: CGFloat(0.9), alpha: CGFloat(1.0))
                 
                 
             }else if(i % 7 == 5){
                 
-                calendarBackGroundColor = UIColor(
+                button.backgroundColor = UIColor(
                     red: CGFloat(1), green: CGFloat(1), blue: CGFloat(0.9), alpha: CGFloat(1.0))
+                
             }
-
+            
+            calendarBackGroundColor = UIColor.blackColor()
             
             //ボタンのデザインを決定する
-            button.backgroundColor = calendarBackGroundColor
             button.setTitleColor(UIColor.blackColor(), forState: .Normal)
             button.titleLabel!.font = UIFont(name: "System", size: CGFloat(calendarFontSize))
             button.layer.cornerRadius = CGFloat(buttonRadius)
@@ -364,6 +366,8 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         }
         
     }
+    
+    
     
     //タイトル表記を設定する関数
     func setupCalendarTitleLabel() {
@@ -389,7 +393,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         let currentDate: NSDate = currentCalendar.dateFromComponents(currentComps)!
         recreateCalendarParameter(currentCalendar, currentDate: currentDate)
     }
-    
     //前の年月に該当するデータを取得する関数
     func setupPrevCalendarData() {
         
@@ -486,8 +489,11 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         //コンソール表示
         print("\(year)年\(month)月\(button.tag)日が選択されました！")
         getAllPhotosInfo(year, month: month, day: button.tag)
+        button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        button.backgroundColor = calendarBackGroundColor
         
-    }
+     }
+
     
     //前の月のボタンを押した際のアクション
     @IBAction func getPrevMonthData(sender: UIButton) {
@@ -567,7 +573,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
                     self.haikeiImageView.image = image
                 })
         }
-        
     }
     
     func textRed() {
@@ -588,7 +593,13 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
                                     let image = UIImage(data: data!)
                                     self.haikeiImageView.image = image
                             })
-                        }
+                        } else {
+                            // このときだけ画像がないよーを表示する
+                            self.haikeiImageView.alpha = 1.0
+
+                            self.haikeiImageView.image = UIImage(named: "noimage.JPG")
+                            
+                }
                     }, completion: nil)
         })
     }
